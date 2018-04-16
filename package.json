@@ -1,0 +1,25 @@
+{
+  "name": "bmax-utils",
+  "version": "0.0.1",
+  "description": "A utility bundle which can help in a bunch of situations.",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bmaximilian/bmax-utils.git"
+  },
+  "keywords": [
+    "utils",
+    "bmaximilian",
+    "typescript",
+    "helper"
+  ],
+  "author": "Maximilian Beck <contact@maximilianbeck.de>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bmaximilian/bmax-utils/issues"
+  },
+  "homepage": "https://github.com/bmaximilian/bmax-utils#readme"
+}
