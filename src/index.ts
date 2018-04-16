@@ -1,4 +1,6 @@
 
 import { hello } from './test/hello';
 
-console.log(hello());
+export {
+  hello,
+}

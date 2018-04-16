@@ -1,0 +1,43 @@
+{
+  "extends": [
+    "tslint-eslint-rules",
+    "tslint-config-airbnb"
+  ],
+  "rules": {
+    "no-boolean-literal-compare": false,
+    "import/extensions": [
+      "error",
+      "always",
+      {
+        "js": "never",
+        "ts": "never"
+      }
+    ],
+    "no-debugger": true,
+    "no-console": true,
+    "no-trailing-whitespace": true,
+    "quotes": [
+      "error",
+      "single"
+    ],
+    "semi": [
+      "error",
+      "always"
+    ],
+    "indent": [
+      true,
+      "spaces",
+      4
+    ],
+    "no-multiple-empty-lines": [
+      "error",
+      {
+        "max": 1,
+        "maxBOF": 1
+      }
+    ]
+  },
+  "rulesDirectory": [
+    "node_modules/tslint-eslint-rules/dist/rules"
+  ]
+}

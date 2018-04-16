@@ -7,9 +7,13 @@
   "scripts": {
     "doc": "typedoc — out doc src/index.ts",
     "build": "tsc",
+    "lint": "tslint -c tslint.json src/**/*.ts",
     "test": "nyc mocha -r ts-node/register -r source-map-support/register src/**/*.spec.ts",
     "coverage": "nyc report --reporter=text-lcov",
-    "coverage:coveralls": "nyc report --reporter=text-lcov | coveralls"
+    "coverage:coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "postinstall:build": "npm run ci && npm run build",
+    "ci": "npm run lint && npm run test",
+    "postinstall": "postinstall-build dist --script postinstall:build"
   },
   "repository": {
     "type": "git",
@@ -62,6 +66,12 @@
     "nyc": "^11.6.0",
     "source-map-support": "^0.5.4",
     "ts-node": "^5.0.1",
+    "tslint": "^5.9.1",
+    "tslint-config-airbnb": "^5.8.0",
+    "tslint-eslint-rules": "^5.1.0",
     "typescript": "^2.8.1"
+  },
+  "dependencies": {
+    "postinstall-build": "^5.0.1"
   }
 }
