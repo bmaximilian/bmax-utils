@@ -1,1 +1,4 @@
-console.log('Hello World!');
+
+import { hello } from './test/hello';
+
+console.log(hello());
