@@ -1,6 +1,6 @@
 
-import { hello } from './test/hello';
+import { replacePlaceholder } from './strings/replacePlaceholder';
 
 export {
-  hello,
+  replacePlaceholder,
 };

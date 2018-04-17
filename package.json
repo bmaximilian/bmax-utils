@@ -7,8 +7,8 @@
   "scripts": {
     "doc": "typedoc — out doc src/index.ts",
     "build": "tsc",
-    "lint": "tslint --project tsconfig.json -c tslint.json src/**/*.ts",
-    "test": "nyc mocha -r ts-node/register -r source-map-support/register src/**/*.spec.ts",
+    "lint": "tslint --project tsconfig.json -c tslint.json ./src/**/*.ts",
+    "test": "nyc mocha src/**/**/*.spec.ts src/**/*.spec.ts --recursive --require ts-node/register --require source-map-support/register",
     "coverage": "nyc report --reporter=text-lcov",
     "coverage:coveralls": "nyc report --reporter=text-lcov | coveralls",
     "postinstall:build": "npm run ci && npm run build",
@@ -43,13 +43,15 @@
       "text-summary",
       "html"
     ],
+    "include": [
+      "src/**/*.spec.ts"
+    ],
     "extension": [
       ".ts",
       ".tsx"
     ],
     "exclude": [
-      "**/*.d.ts",
-      "**/*.js",
+      "dist",
       "src/index.*"
     ],
     "cache": true,
@@ -73,6 +75,8 @@
     "typescript": "^2.8.1"
   },
   "dependencies": {
+    "@types/lodash": "^4.14.107",
+    "lodash": "^4.17.5",
     "postinstall-build": "^5.0.1"
   }
 }
