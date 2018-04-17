@@ -8,7 +8,7 @@
     "doc": "typedoc — out doc src/index.ts",
     "build": "tsc",
     "lint": "tslint --project tsconfig.json -c tslint.json ./src/**/*.ts",
-    "test": "nyc mocha src/**/**/*.spec.ts src/**/*.spec.ts --recursive --require ts-node/register --require source-map-support/register",
+    "test": "nyc mocha src/**/*.spec.ts src/**/**/*.spec.ts --recursive --require ts-node/register --require source-map-support/register",
     "coverage": "nyc report --reporter=text-lcov",
     "coverage:coveralls": "nyc report --reporter=text-lcov | coveralls",
     "postinstall:build": "npm run ci && npm run build",
@@ -44,7 +44,8 @@
       "html"
     ],
     "include": [
-      "src/**/*.spec.ts"
+      "src/**/*.spec.ts",
+      "src/**/**/*.spec.ts"
     ],
     "extension": [
       ".ts",
@@ -55,7 +56,7 @@
       "src/index.*"
     ],
     "cache": true,
-    "all": true,
+    "all": false,
     "report-dir": "./coverage"
   },
   "devDependencies": {
