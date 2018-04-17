@@ -3,5 +3,6 @@
 cd "$(dirname "$0")"
 cd ..
 
-rm -f .git/hooks/pre-push
-ln -s setup/git/hooks/pre-push .git/hooks/pre-push
+cd .git/hooks
+rm -f pre-push
+ln -s ../../setup/git/hooks/pre-push pre-push
