@@ -30,7 +30,7 @@ describe('formatGetUrlParameters', () => {
       oe: encodeURIComponent('ö'),
       ue: encodeURIComponent('ü'),
     };
-    expect(params).to.equal(`?ae=${encoded.ae}&oe=${encoded.oe}&ue=${encoded.ue}&crit=${encoded.crit}`);
+    expect(params).to.equal(`?ae=${encoded.ae}&crit=${encoded.crit}&oe=${encoded.oe}&ue=${encoded.ue}`);
   });
 
   it('Should work with special characters', () => {
