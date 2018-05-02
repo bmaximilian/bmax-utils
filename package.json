@@ -11,8 +11,8 @@
     "test": "nyc mocha src/**/*.spec.ts src/**/**/*.spec.ts --recursive --require ts-node/register --require source-map-support/register",
     "coverage": "nyc report --reporter=text-lcov",
     "coverage:coveralls": "nyc report --reporter=text-lcov | coveralls",
-    "postinstall:build": "npm run ci && npm run build",
-    "ci": "npm run lint && npm run test",
+    "postinstall:build": "npm run build",
+    "ci": "npm run lint && npm run test && npm run build",
     "postinstall": "postinstall-build dist --script postinstall:build"
   },
   "repository": {
