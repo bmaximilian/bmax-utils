@@ -23,9 +23,10 @@ describe('defineBlacklist', () => {
             topSecret: 42,
         };
 
-        expect(blacklist(object)).to.equal({
-            bar: 'test',
-            foo: 'foo',
-        });
+        const blacklisted = blacklist(object);
+        expect(blacklisted).to.have.property('bar', 'test');
+        expect(blacklisted).to.have.property('foo', 'foo');
+        expect(blacklisted).not.to.have.property('secret');
+        expect(blacklisted).not.to.have.property('topSecret');
     });
 });

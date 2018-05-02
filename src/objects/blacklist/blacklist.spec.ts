@@ -18,9 +18,10 @@ describe('blacklist', () => {
         };
 
         const list = ['secret', 'topSecret'];
-        expect(blacklist(object, list)).to.equal({
-            priv: 'foo',
-            pub: 'test',
-        });
+        const blacklisted = blacklist(object, list);
+        expect(blacklisted).to.have.property('priv', 'foo');
+        expect(blacklisted).to.have.property('pub', 'test');
+        expect(blacklisted).not.to.have.property('secret');
+        expect(blacklisted).not.to.have.property('topSecret');
     });
 });

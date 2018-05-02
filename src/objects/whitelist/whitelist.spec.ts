@@ -18,9 +18,10 @@ describe('whitelist', () => {
         };
 
         const list = ['pub', 'priv'];
-        expect(whitelist(object, list)).to.equal({
-            priv: 'foo',
-            pub: 'test',
-        });
+        const whitelisted = whitelist(object, list);
+        expect(whitelisted).to.have.property('priv', 'foo');
+        expect(whitelisted).to.have.property('pub', 'test');
+        expect(whitelisted).not.to.have.property('secret');
+        expect(whitelisted).not.to.have.property('topSecret');
     });
 });

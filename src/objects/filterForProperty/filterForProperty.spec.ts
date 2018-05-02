@@ -29,11 +29,10 @@ describe('filterForProperty', () => {
             },
         };
 
-        expect(filterForProperty(object, 'value')).to.equal({
-            subObjectFour: '13141516',
-            subObjectOne: '1234',
-            subObjectThree: '9101112',
-            subObjectTwo: '5678',
-        });
+        const filtered = filterForProperty(object, 'value');
+        expect(filtered).to.have.property('subObjectOne', '1234');
+        expect(filtered).to.have.property('subObjectTwo', '5678');
+        expect(filtered).to.have.property('subObjectThree', '9101112');
+        expect(filtered).to.have.property('subObjectFour', '13141516');
     });
 });

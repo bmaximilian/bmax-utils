@@ -20,7 +20,7 @@ export function generateOpacity(color: string, opacity: string|number) {
             parseInt(rgbMatch[1], 10),
             parseInt(rgbMatch[2], 10),
             parseInt(rgbMatch[3], 10),
-            rgbMatch[4] ? parseInt(rgbMatch[4], 10) : buffer.a,
+            rgbMatch[4] ? parseFloat(rgbMatch[4]) : buffer.a,
         ];
     } else {
         const hexMatch = hexToRgb(color);
@@ -32,7 +32,7 @@ export function generateOpacity(color: string, opacity: string|number) {
     }
 
     try {
-        buffer.a = parseInt(opacity.toString(), 10);
+        buffer.a = parseFloat(opacity.toString());
     } catch (e) {
         buffer.a = 0;
     }

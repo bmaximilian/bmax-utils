@@ -23,9 +23,10 @@ describe('defineWhitelist', () => {
             topSecret: 42,
         };
 
-        expect(whitelist(object)).to.equal({
-            bar: 'test',
-            foo: 'foo',
-        });
+        const whitelisted = whitelist(object);
+        expect(whitelisted).to.have.property('bar', 'test');
+        expect(whitelisted).to.have.property('foo', 'foo');
+        expect(whitelisted).not.to.have.property('secret');
+        expect(whitelisted).not.to.have.property('topSecret');
     });
 });
