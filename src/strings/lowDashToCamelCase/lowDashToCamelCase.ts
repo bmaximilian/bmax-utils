@@ -10,23 +10,23 @@
  * @param {String} string : String : The string to convert
  * @return {string} : The converted string
  */
-export const lowDashToCamelCase = (string: string) => {
-  const str = string.toString().trim();
-  if (str === str.toString().toUpperCase()) {
-    return str;
-  }
+export function lowDashToCamelCase(string: string) {
+    const str = string.toString().trim();
+    if (str === str.toString().toUpperCase()) {
+        return str;
+    }
 
-  // save starting low dashes
-  let first = '';
-  let execString = str;
-  while (execString.toString().charAt(0) === '_') {
-    first += execString.toString().charAt(0);
-    execString = execString.toString().slice(1);
-  }
+    // save starting low dashes
+    let first = '';
+    let execString = str;
+    while (execString.toString().charAt(0) === '_') {
+        first += execString.toString().charAt(0);
+        execString = execString.toString().slice(1);
+    }
 
-  // Convert string to camelCase
-  execString = execString.replace(/_+([^_]+)/g, (whole, match) => match.charAt(0).toUpperCase() + match.slice(1));
+    // Convert string to camelCase
+    execString = execString.replace(/_+([^_]+)/g, (whole, match) => match.charAt(0).toUpperCase() + match.slice(1));
 
-  const out = first + execString;
-  return out.length > first.length ? out : str;
-};
+    const out = first + execString;
+    return out.length > first.length ? out : str;
+}

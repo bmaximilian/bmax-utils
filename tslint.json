@@ -3,7 +3,8 @@
     "tslint:recommended",
     "tslint-config-prettier",
     "tslint-eslint-rules",
-    "tslint-config-airbnb"
+    "tslint-config-airbnb",
+    "tslint-no-unused-expression-chai"
   ],
   "rules": {
     "import/extensions": [
@@ -31,6 +32,9 @@
       "spaces",
       4
     ],
+    "ter-indent": [true, 4, {
+      "SwitchCase": 1
+    }],
     "no-multiple-empty-lines": [
       "error",
       {

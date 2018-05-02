@@ -15,12 +15,12 @@ import { forOwn } from 'lodash';
  * @param {Object} placeholders : Object : An object whose keys are the placeholders
  * @return {String} : The replaced string
  */
-export const replacePlaceholder = (string: string, placeholders: object) => {
-  let newString = string.toString();
+export function replacePlaceholder(string: string, placeholders: object) {
+    let newString = string.toString();
 
-  forOwn(placeholders, (value: string, key: string) => {
-    newString = newString.replace(new RegExp(`{${key}}`, 'g'), value);
-  });
+    forOwn(placeholders, (value: string, key: string) => {
+        newString = newString.replace(new RegExp(`{${key}}`, 'g'), value);
+    });
 
-  return newString;
-};
+    return newString;
+}

@@ -12,11 +12,11 @@ import { get, isString } from 'lodash';
  * @param {Object} params : Object : The parameters to format
  * @return {string} : The formatted parameters
  */
-export const formatGetUrlParameters = (params: object) => {
-  const paramString = Object
-    .keys(params)
-    .map(key => `${key}=${encodeURIComponent(get(params, key))}`)
-    .join('&');
+export function formatGetUrlParameters(params: object) {
+    const paramString = Object
+        .keys(params)
+        .map(key => `${key}=${encodeURIComponent(get(params, key))}`)
+        .join('&');
 
-  return isString(paramString) && paramString.length > 0 ? `?${paramString}` : '';
-};
+    return isString(paramString) && paramString.length > 0 ? `?${paramString}` : '';
+}

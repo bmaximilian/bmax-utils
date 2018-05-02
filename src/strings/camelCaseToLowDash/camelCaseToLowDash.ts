@@ -10,7 +10,7 @@
  * @param {String} string : String : The string to convert
  * @return {string} : String : The converted string
  */
-export const camelCaseToLowDash = (string: string) => {
-  const out = string.toString().replace(/([a-z0-9])([A-Z])/g, '$1_$2');
-  return string === string.toString().toUpperCase() ? out : out.toLowerCase();
-};
+export function camelCaseToLowDash(string: string) {
+    const out = string.toString().replace(/([a-z0-9])([A-Z])/g, '$1_$2');
+    return string === string.toString().toUpperCase() ? out : out.toLowerCase();
+}
