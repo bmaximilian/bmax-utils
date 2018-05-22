@@ -1,5 +1,8 @@
 # bmax-utils
 
+[![Build Status](https://travis-ci.org/bmaximilian/bmax-utils.svg?branch=master)](https://travis-ci.org/bmaximilian/bmax-utils)
+[![Coverage Status](https://coveralls.io/repos/github/bmaximilian/bmax-utils/badge.svg?branch=master)](https://coveralls.io/github/bmaximilian/bmax-utils?branch=master)
+
 > A utility package with JavaScript helper functions.
 
 
