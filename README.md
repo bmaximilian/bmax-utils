@@ -21,6 +21,7 @@
     * [defineWhitelist()](#definewhitelist)
     * [filterForProperty()](#filterforproperty)
     * [hasMatchingKeys()](#hasmatchingkeys)
+    * [whitelist()](#whitelist)
 * [strings](#strings)
     * [formatGetUrlParameters()](#formatgeturlparameters)
     * [replacePlaceholder()](#replaceplaceholder)
@@ -239,18 +240,183 @@ lowDashToCamelCase({ hallo_welt: 'hallo_welt' });
 
 ### objects
 
+Helper functions for working with objects
+
 #### blacklist
+
+Returns an Object without the forbidden properties
+
+```javascript
+import { blacklist } from 'bmax-utils';
+
+blacklist(
+    {
+        foo: 1,
+        bar: 2,
+        baz: 3,
+    },
+    [
+        'bar',
+        'baz',
+    ],
+);
+// { foo: 1 }
+```
 
 #### defineBlacklist
 
+Defines a function that filters an object to contain no keys matching the strings in the submitted list
+
+```javascript
+import { defineBlacklist } from 'bmax-utils';
+
+const blacklist = defineBlacklist(['foo', 'bar']);
+
+blacklist({
+    foo: 1,
+    bar: 2,
+    baz: 3,
+});
+// { baz: 3 }
+
+blacklist({
+    fi: 1,
+    bar: 2,
+    fum: 3,
+});
+// { fi: 1, fum: 3 }
+```
+
 #### defineWhitelist
+
+Defines a function that filters an object to contain only keys matching the strings in the submitted list
+
+```javascript
+import { defineWhitelist } from 'bmax-utils';
+
+const whitelist = defineWhitelist(['foo', 'bar']);
+
+whitelist({
+    foo: 1,
+    bar: 2,
+    baz: 3,
+});
+// { foo: 1, bar: 2 }
+
+whitelist({
+    fi: 1,
+    bar: 2,
+    fum: 3,
+});
+// { bar: 2 }
+```
+
 
 #### filterForProperty
 
+Filters an object and returns a new object whose properties are the keys of the source object with the filtered prop as value
+
+```javascript
+import { filterForProperty } from 'bmax-utils';
+
+filterForProperty({
+    name: {
+        key: 'name',
+        validation: 'min:3',
+        value: 'a',
+    },
+    email: {
+        key: 'mail',
+        value: 'b',
+    },
+    phone: {
+        key: 'phone',
+        value: '0'
+    }
+}, 'value');
+/*
+Will return:
+{
+    name: 'a',
+    email: 'b',
+    phone: '0',
+}
+*/
+```
+
+
 #### hasMatchingKeys
+
+Checks if an object has keys that match to the RegExp
+
+```javascript
+import { hasMatchingKeys } from 'bmax-utils';
+
+hasMatchingKeys({
+    test: 1,
+    tester: 2,
+    foo: 3,
+}, /er$/);
+// true
+
+hasMatchingKeys({
+    test: 1,
+    foo: 3,
+}, /er$/)
+// false
+```
+
+
+#### whitelist
+
+Returns an Object that contains only the allowed properties
+
+```javascript
+import { whitelist } from 'bmax-utils';
+
+whitelist(
+    {
+        foo: 1,
+        bar: 2,
+        baz: 3,
+    },
+    [
+        'bar',
+        'baz',
+    ],
+);
+// { bar: 2, baz: 3 }
+```
+
 
 ### strings
 
+Helper functions for working with strings
+
 #### formatGetUrlParameters
 
+Formats json params to GET HTTP parameters
+
+```javascript
+import { formatGetUrlParameters } from 'bmax-utils';
+
+formatGetUrlParameters({
+    number: 1234,
+    key: 'da39a3ee5e6b4b0d3255bfef95601890afd80709',
+});
+// '?number=1234&secret=da39a3ee5e6b4b0d3255bfef95601890afd80709'
+```
+
+
 #### replacePlaceholder
+
+Replaces a placeholder string
+>  Placeholders look like: {key}
+
+```javascript
+import { replacePlaceholder } from 'bmax-utils';
+
+replacePlaceholder('The id is: {id}', { id: 1 });
+// 'The id is: 1'
+```
+
