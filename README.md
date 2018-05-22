@@ -41,7 +41,7 @@ import { getDayDifferenceBetweenDates } from 'bmax-utils';
 const today = new Date();
 const tomorrow = new Date().setDate(new Date().getDate() + 1);
 
-const diff = getDayDifferenceBetweenDates(today, tomorrow);
+getDayDifferenceBetweenDates(today, tomorrow);
 // 1
 ```
 
@@ -172,7 +172,7 @@ Options can be:
 }
  */
 
-const output = getErrorsFromAjaxOrValidationResponse(response, options);
+getErrorsFromAjaxOrValidationResponse(response, options);
 /*
 Will always return:
 {
