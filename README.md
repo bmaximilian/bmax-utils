@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/bmaximilian/bmax-utils.svg?branch=master)](https://travis-ci.org/bmaximilian/bmax-utils)
 [![Coverage Status](https://coveralls.io/repos/github/bmaximilian/bmax-utils/badge.svg?branch=master)](https://coveralls.io/github/bmaximilian/bmax-utils?branch=master)
+[![npm](https://img.shields.io/npm/v/bmax-utils.svg)](https://www.npmjs.com/package/bmax-utils)
+[![License](https://img.shields.io/github/license/bmaximilian/bmax-utils.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 > A utility package with JavaScript helper functions.
 
