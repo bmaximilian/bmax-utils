@@ -1,4 +1,4 @@
-import { cloneDeep, forOwn, includes, isArray, isObject, unset } from 'lodash';
+import { cloneDeep, has, isArray, isObject, unset } from 'lodash';
 
 /**
  * Defines a blacklist function for the allowed parameters
@@ -18,14 +18,15 @@ export function defineBlacklist(forbidden: string[]) {
     return function blacklist(model: object) {
         if (!isObject(model)) throw new Error('Parameter 1 needs to be an object.');
 
-        const replaceModel: object = cloneDeep(model);
+        return forbidden.reduce(
+            (accumulator, key) => {
+                if (has(accumulator, key)) {
+                    unset(accumulator, key);
+                }
 
-        forOwn(replaceModel, (value, prop) => {
-            if (includes(forbidden, prop)) {
-                unset(replaceModel, prop);
-            }
-        });
-
-        return replaceModel;
+                return accumulator;
+            },
+            cloneDeep(model),
+        );
     };
 }

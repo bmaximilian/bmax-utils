@@ -4,7 +4,7 @@
  * @author Maximilian Beck <maximilian.beck@wtl.de>
  */
 
-import { cloneDeep, forOwn, includes, isArray, isObject, unset } from 'lodash';
+import { get, has, isArray, isObject, set } from 'lodash';
 
 /**
  * Defines a whitelist function for the allowed parameters
@@ -24,14 +24,14 @@ export function defineWhitelist(allowed: string[]) {
     return function whitelist(model: object) {
         if (!isObject(model)) throw new Error('Parameter 1 needs to be an object.');
 
-        const replaceModel = cloneDeep(model);
+        const buffer = {};
 
-        forOwn(replaceModel, (value, prop) => {
-            if (!includes(allowed, prop)) {
-                unset(replaceModel, prop);
+        allowed.forEach((key) => {
+            if (has(model, key)) {
+                set(buffer, key, get(model, key, null));
             }
         });
 
-        return replaceModel;
+        return buffer;
     };
 }
