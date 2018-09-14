@@ -8,7 +8,7 @@ import { isArray, keys } from 'lodash';
 import { lowDashToCamelCase } from '../../strings/lowDashToCamelCase';
 
 /**
- * Converts a object with ow dash separated properties
+ * Converts a object with low dash separated properties
  * to a object with camel case properties
  *
  * @param {Object} object : Object : The object to convert
