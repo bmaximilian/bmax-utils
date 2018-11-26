@@ -19,7 +19,7 @@ export interface IOutput {
     ajax: string[];
     all: string[];
     backend: string[];
-    default: string[];
+    defaultMessage: string[];
     validation: string[];
     xhrStatus: number;
 }
@@ -134,7 +134,7 @@ function defineCustomErrorMessagesForHttpStatusCode(response: any, options: IOpt
  * validation: String[],
  * backend: String[],
  * ajax: String[],
- * default: String[],
+ * defaultMessage: String[],
  * all: String[],
  * xhrStatus: number,
  * }} : ValidationObject
@@ -144,7 +144,7 @@ export function getErrorsFromAjaxOrValidationResponse(response: any, options: IO
         ajax: defineCustomErrorMessagesForHttpStatusCode(response, options),
         all: [],
         backend: getBackendErrorFromResponse(response, options),
-        default: [],
+        defaultMessage: [],
         validation: getValidationErrorsFromResponse(response, options),
         xhrStatus: has(response, 'status') && response.status ? response.status : 200,
     };
@@ -158,10 +158,10 @@ export function getErrorsFromAjaxOrValidationResponse(response: any, options: IO
     if (output.all.length === 0 && has(options, 'defaultIfEmpty')) {
         if (isArray(options.defaultIfEmpty)) {
             output.all = options.defaultIfEmpty;
-            output.default = options.defaultIfEmpty;
+            output.defaultMessage = options.defaultIfEmpty;
         } else if (isString(options.defaultIfEmpty)) {
             output.all = [options.defaultIfEmpty];
-            output.default = [options.defaultIfEmpty];
+            output.defaultMessage = [options.defaultIfEmpty];
         }
     }
 
